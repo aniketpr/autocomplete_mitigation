@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>From Auto Complete</title>
+  <style type="text/css">
+	  	@font-face {
+	  font-family: 'password';
+	  font-style: normal;
+	  font-weight: 400;
+	  src: url(password.ttf);
+	}
+
+	input.key {
+	  font-family: 'password';
+	  width: 100px; height: 16px;  
+	}
+  </style>
+</head>
+<body>
+  <form action="login.php" method="post" id="formforlogin" autocomplete="off">
+  	<input type="hidden" name="email" style='display: none;' id="usernameforlogin" ><br>
+  	<input type="hidden" name="password" style='display: none;' id="passwordforlogin"><br>
+  	<p>Email : </p>
+    <input type="email" placeholder="Email"  id="usernameforshow" /><br>
+    <p>Password : </p>
+    <input type="text" id="passwordforshow" class="key" /><br><br>
+    <!-- <input type="submit" name="submit" onclick="submitformforlogin()"> -->
+    <button onclick="submitformforlogin()">submit</button>
+  </form>
+ <!--  A hidden field and JAVA script needs to be added. -->
+	<script type="text/javascript">
+
+		function submitformforlogin()
+	  	{ 
+			  //copy value from show username field to actual username field. 
+			document.getElementById("usernameforlogin").value = document.getElementById("usernameforshow").value; 
+			//copy value from show password field to actual password field.
+			document.getElementById("passwordforlogin").value = document.getElementById("passwordforshow").value; 
+			//submit the formforlogin. 
+			document.getElementById("formforlogin").submit(); 
+		} 
+	</script>
+</body>
+</html>
